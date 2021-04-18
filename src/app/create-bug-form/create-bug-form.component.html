@@ -1,0 +1,20 @@
+
+<div>
+  <label>Bug Name</label><br>
+<input [(ngModel)] ='Bug.name' text = "name" placeholder="bugname"><br><br>
+<label>Project ID</label><br>
+<input [(ngModel)] ='Bug.projectId'  placeholder="project id"><br><br>
+<label>Module</label><br>
+<input [(ngModel)] ='Bug.module'  placeholder="module"><br><br>
+<label>Build Version</label><br>
+<input [(ngModel)] ='Bug.buildversion'  placeholder="buildversion"><br><br>
+<label>Product</label><br>
+<input [(ngModel)] ='Bug.product'  placeholder="product"><br><br>
+<label>Submitted On</label><br>
+<input [(ngModel)] ='Bug.submittedOn'  type = "date" placeholder="submittedOn"><br><br>
+<label>ETA</label><br>
+<input [(ngModel)] ='Bug.eta' type="date"  placeholder="eta"><br><br>
+
+<button (click)='save()'>Save</button>
+
+</div>
