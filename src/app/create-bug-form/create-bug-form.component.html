@@ -7,7 +7,7 @@
 <label>Module</label><br>
 <input [(ngModel)] ='Bug.module'  placeholder="module"><br><br>
 <label>Build Version</label><br>
-<input [(ngModel)] ='Bug.buildversion'  placeholder="buildversion"><br><br>
+<input [(ngModel)] ='Bug.buildVersion'  placeholder="buildversion"><br><br>
 <label>Product</label><br>
 <input [(ngModel)] ='Bug.product'  placeholder="product"><br><br>
 <label>Submitted On</label><br>
@@ -15,6 +15,71 @@
 <label>ETA</label><br>
 <input [(ngModel)] ='Bug.eta' type="date"  placeholder="eta"><br><br>
 
-<button (click)='save()'>Save</button>
+  <label>Bug Status :</label>
+  <select [(ngModel)]="Bug.status">
+    <option>NEW</option>
+  </select>
+
+
+  <label>Bug Severity :</label>
+  <select [(ngModel)]="Bug.severity">
+    <option>CRITICAL</option>
+    <option>MAJOR</option>
+    <option>MINOR</option>
+  </select>
+
+
+  <label>Priority:</label>
+  <select [(ngModel)]="Bug.priority">
+    <option>HIGH</option>
+    <option>MEDIUM</option>
+    <option>LOW</option>
+  </select>
+
+
+  <label>Type :</label>
+  <select [(ngModel)]="Bug.type">
+    <option>SYNTAX</option>
+    <option>COMPILE_TIME</option>
+    <option>RUNTIME</option>
+    <option>LOGICAL</option>
+    <option>FUNCTIONAL</option>
+    <option>CALCULATION</option>
+  </select>
+
+
+<button (click)='save()'>Save</button><br><br><br><br>
+
+
+
+ <table>
+  <thead>
+    <td>Bug Name</td>
+    <td>Project ID</td>
+    <td>Module</td>
+    <td>Build Version</td>
+    <td>Synopsis</td>
+    <td>Product</td>
+    <td>Description</td>
+    <td>Submitted Date</td>
+    <td>ETA</td>
+    <td>Status</td>
+  </thead>
+
+  <tbody>
+    <tr *ngFor='let Bug of bugArray; index as i'>
+      <td>{{ Bug.name }}</td>
+      <td>{{ Bug.projectId }}</td>
+      <td>{{ Bug.module }}</td>
+      <td>{{ Bug.buildVersion }}</td>
+      <td>{{ Bug.synopsis }}</td>
+      <td>{{ Bug.product }}</td>
+      <td>{{ Bug.description }}</td>
+      <td>{{ Bug.submittedOn }}</td>
+      <td>{{ Bug.eta }}</td>
+      <td>{{ Bug.status }}</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>

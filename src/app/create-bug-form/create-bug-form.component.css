@@ -3,3 +3,23 @@ div{
   background-color: lightblue;
   text-align: center
 }
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  border: 1px solid black;
+}
+
+th,td{
+  border: 1px soild black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd){
+  background-color: grey;
+}
+
+tr,tr td:hover{
+  background-color:white;
+}
