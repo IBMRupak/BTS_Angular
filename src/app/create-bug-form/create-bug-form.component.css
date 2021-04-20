@@ -1,7 +1,42 @@
-div{
-  border: 5px outset black;
-  background-color: lightblue;
-  text-align: center
+
+.inputs{
+  font-family:verdana;
+  font-size:100%;
+}
+
+label {
+  width:180px;
+  clear:left;
+  text-align:right;
+  padding-right:10px;
+}
+
+input, label {
+
+  float:left;
+}
+h1{
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: black;
+}
+h3{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 250px;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 table{
@@ -12,14 +47,30 @@ table{
 
 th,td{
   border: 1px soild black;
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 
 tr:nth-child(odd){
-  background-color: grey;
+  background-color: rgb(173, 168, 168);
 }
 
 tr,tr td:hover{
-  background-color:white;
+  background-color:rgb(221, 207, 207);
+}
+
+body {
+	position: relative;
+}
+
+.title1 {
+	height: 150px;
+	position: relative;
+	padding-top: 100px;
+}
+
+.body1 {
+	width: 100%;
+	float: left;
+	position: relative;
 }

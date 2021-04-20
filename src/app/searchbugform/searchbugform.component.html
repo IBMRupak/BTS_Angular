@@ -1,52 +1,91 @@
-<p>searchbugform works!</p>
-<div class="searchbugform">
-  <h1>BUG TRACKING SYSTEM</h1>
-
-  <h3>SEARCH BUG</h3>
-  <div>
-    <label>Bug Name : </label>
-    <input [(ngModel)]="Bug.name" />
-    <button (click)="searchBugbyName(Bug.name)">Search bug by name</button><br />
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div
+    class="container-fluid bg-muted"
+    style="padding-top: 10px; padding-bottom: 10px"
+  >
+    <h2 class="sectionHead">Search Bug</h2><br><br>
   </div>
-  <div>
-    <label>Bug Status : </label>
-    <input [(ngModel)]="Bug.status" />
-    <button (click)="searchBugbyStatus(Bug.status)">Search bug by status</button>
+
+  <div
+    id="createNewBug"
+    class="container tab-pane active"
+    style="padding-bottom: 30px"
+  >
+    <div class="row">
+      <div class="col">
+        <div class="form-group form-inline">
+          <br />
+          <input
+            type="text"
+            [(ngModel)]="Bug.name"
+            class="form-control mb-2 mr-sm-2"
+            id="name"
+            placeholder="Enter Bug Name"
+            required
+          />
+          <button class="btn btn-info" (click)="searchBugbyName(Bug.name)">
+            Search bug by name</button
+          ><br />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group form-inline">
+          <br />
+          <input
+            type="text"
+            [(ngModel)]="Bug.status"
+            class="form-control mb-2 mr-sm-2"
+            id="status"
+            placeholder=" Enter Bug Status"
+            required
+          />
+          <button class="btn btn-info" (click)="searchBugbyStatus(Bug.status)">
+            Search bug by status</button
+          ><br />
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table
+        class="table table-bordered table-stripped"
+        style="border: 2px solid #000000; margin-top: 50px"
+      >
+        <thead class="thead-dark">
+          <td>Bug Name</td>
+          <td>Project ID</td>
+          <td>Module</td>
+          <td>Build Version</td>
+          <td>Synopsis</td>
+          <td>Product</td>
+          <td>Description</td>
+          <td>Submitted Date</td>
+          <td>ETA</td>
+          <td>Status</td>
+          <td>Priority</td>
+          <td>Severity</td>
+          <td>Type</td>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let bug of bugArray; index as i">
+            <td>{{ bug.name }}</td>
+            <td>{{ bug.projectId }}</td>
+            <td>{{ bug.module }}</td>
+            <td>{{ bug.buildVersion }}</td>
+            <td>{{ bug.synopsis }}</td>
+            <td>{{ bug.product }}</td>
+            <td>{{ bug.description }}</td>
+            <td>{{ bug.submittedOn | date }}</td>
+            <td>{{ bug.eta | date}}</td>
+            <td>{{ bug.status }}</td>
+            <td>{{ bug.priority }}</td>
+            <td>{{ bug.severity }}</td>
+            <td>{{ bug.type }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-
-<table>
-  <thead>
-    <td>Bug Name</td>
-    <td>Project ID</td>
-    <td>Module</td>
-    <td>Build Version</td>
-    <td>Synopsis</td>
-    <td>Product</td>
-    <td>Description</td>
-    <td>Submitted Date</td>
-    <td>ETA</td>
-    <td>Status</td>
-    <td>Priority</td>
-    <td>Severity</td>
-    <td>Type</td>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let bug of bugArray; index as i">
-      <td>{{ bug.name }}</td>
-      <td>{{ bug.projectId }}</td>
-      <td>{{ bug.module }}</td>
-      <td>{{ bug.buildVersion }}</td>
-      <td>{{ bug.synopsis }}</td>
-      <td>{{ bug.product }}</td>
-      <td>{{ bug.description }}</td>
-      <td>{{ bug.submittedOn }}</td>
-      <td>{{ bug.eta }}</td>
-      <td>{{ bug.status }}</td>
-      <td>{{ bug.priority }}</td>
-      <td>{{ bug.severity }}</td>
-      <td>{{ bug.type }}</td>
-    </tr>
-  </tbody>
-</table>
+</body>
