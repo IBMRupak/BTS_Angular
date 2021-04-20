@@ -85,14 +85,15 @@
           <div class="form-group form-inline">
             <label for="uname" class="mb-2 mr-sm-2"><b>Synopsis : </b></label>
             <br />
-            <input
-              type="text"
-              class="form-control mb-2 mr-sm-2"
+            <textarea  type="text" maxlength="50"
+              class="form-control mb-2 mr-sm-2" placeholder= "synopsis should be max 50 characters"
               id="synopsis"
               name="uname"
               [(ngModel)]="Bug.synopsis"
               required
-            />
+            ></textarea>
+            <span class = "pull-right char"><em>{{50- Bug.synopsis.length}} characters left</em></span>
+
           </div>
         </div>
       </div>
@@ -228,6 +229,7 @@
               [(ngModel)]="Bug.description"
               required
             ></textarea>
+            <span class = "pull-right char"><em>{{100- Bug.description.length}} characters left</em></span>
           </div>
         </div>
       </div>
