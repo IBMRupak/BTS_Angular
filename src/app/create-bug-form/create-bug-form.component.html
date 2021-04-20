@@ -1,214 +1,286 @@
-<div class="tab-content">
-  <div id="createNewBug" class="container tab-pane active"
-    style="padding-bottom: 30px">
-    <form id="createBug">
-      <br>
-      <h3>Create Bug</h3>
+<!-- <div class="jumbotron text-center" style="margin-bottom: 0">
+  <h1>BUG TRACKING SYSTEM</h1>
+</div> -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div
+    class="container-fluid bg-muted"
+    style="padding-top: 10px; padding-bottom: 10px"
+  >
+    <h2 class="sectionHead">Create Bug</h2>
+  </div>
 
-      <div class="container">
-
-        <i>Please enter the following details:</i><br><br>
-
-        <div class="form-group form-inline">
-
-          <label for="uname" class="mb-2 mr-sm-2"><b>Bug
-              Status :</b> </label><br> <input type="text"
-            class="form-control mb-2 mr-sm-2" id="status" [(ngModel)]="Bug.status"
-            name="uname" required>
-
-        </div>
-
-
-
-        <!-- -------first row in create bug---------- -->
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <div class="form-group form-inline">
-                <label for="uname" class="mb-2 mr-sm-2"><b>Bug
-                    Name : </b></label> <br> <input type="text"
-                  class="form-control mb-2 mr-sm-2" id="name"
-                  placeholder="Enter Name of Bug"
-                  [(ngModel)]="Bug.name" name="uname" required>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Project
-                  ID:</b></label> <input type="text" class="form-control mb-2 mr-sm-2"
-                id="projectId" placeholder="Enter Project ID"
-                [(ngModel)]="Bug.projectId" name="uname"
-                required>
-            </div>
-          </div>
-        </div>
-
-        <!-- --------second row in create bug--------- -->
-        <div class="row">
-          <div class="col">
-            <div class="form-group form-inline" action="was-validated">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Bug
-                  Type : </b></label>
-              <!-- dropdown options -->
-              <select name="bugtype"  [(ngModel)]="Bug.type"
-              class="custom-select" id="type"
-                required>
-                <option value="">Select</option>
-                <option>SYNTAX</option>
-                <option>COMPILE_TIME</option>
-                <option>RUNTIME</option>
-                <option>LOGICAL</option>
-                <option>FUNCTIONAL</option>
-                <option>CALCULATION</option>
-              </select>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Module:</b></label>
-              <input type="text" class="form-control mb-2 mr-sm-2"
-                id="module" placeholder="Enter Module"
-                [(ngModel)]="Bug.module"name="uname" required>
-            </div>
-          </div>
-        </div>
-
-        <!-- --------third row in create bug---------- -->
-        <div class="row">
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Build
-                  Version :</b> </label> <input type="text"
-                class="form-control mb-2 mr-sm-2" id="buildVersion"
-                placeholder="Enter Build Version" [(ngModel)]="Bug.buildVersion" name="uname" required>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group form-inline">
-
-              <label for="uname" class="mb-2 mr-sm-2"><b>Product:</b></label>
-              <input type="text" class="form-control mb-2 mr-sm-2"
-                id="product" placeholder="Enter Product Name" [(ngModel)]="Bug.product" name="uname"
-                required>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- --------fourth row in create bug--------- -->
-        <div class="row">
-          <div class="col">
-            <div class="form-group form-inline">
-               	<label for="uname" class="mb-2 mr-sm-2"><b>Submitted Date
-                : </b></label> <input type="date" class="form-control mb-2 mr-sm-2"
-                id="submittedOn"  [(ngModel)]="Bug.submittedOn" name="uname" required>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>ETA : </b></label>
-              <input type="date" class="form-control mb-2 mr-sm-2" id="eta"
-                placeholder=""  [(ngModel)]="Bug.eta" name="uname" required>
-            </div>
-          </div>
-        </div>
-
-        <!-- --------fifth row in create bug--------- -->
-        <div class="row">
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Priority
-                  : </b></label>
-              <!-- dropdown options -->
-              <select class="custom-select custom-select mb-3"
-                name="priority"  [(ngModel)]="Bug.priority"id="priority" required>
-                <option value="">Select</option>
-                <option>HIGH</option>
-                <option>MEDIUM</option>
-                <option>LOW</option>
-              </select>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Severity
-                  :</b></label>
-              <!-- dropdown options -->
-              <select class="custom-select custom-select mb-3"
-                name="severity"  [(ngModel)]="Bug.severity" id="severity" required>
-                <option value="">Select</option>
-                <option>CRITICAL</option>
-                <option>MAJOR</option>
-                <option>MINOR</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- --------sixth row in create bug--------- -->
-        <div class="row">
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Description
-                  :</b> </label>
-              <div class="form-group">
-                <textarea class="form-control" rows="5" id="description"
-                  name="text"   [(ngModel)]="Bug.description" placeholder="describe in 5 to 100 characters"
-                  required></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group form-inline">
-              <label for="uname" class="mb-2 mr-sm-2"><b>Synopsis:</b></label>
-              <input type="text" class="form-control mb-2 mr-sm-2"
-                id="synopsis"   [(ngModel)]="Bug.synopsis"name="uname" required>
-            </div>
+  <div
+    id="createNewBug"
+    class="container tab-pane active"
+    style="padding-bottom: 30px"
+  >
+    <!-- <form id="createBug"> -->
+    <!-- -------first row in create bug---------- -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <div class="form-group form-inline">
+            <label for="uname" class="mb-2 mr-sm-2"><b>Bug Name : </b></label>
+            <br />
+            <input
+              type="text"
+              class="form-control mb-2 mr-sm-2"
+              id="name"
+              name="uname"
+              [(ngModel)]="Bug.name"
+              required
+            />
           </div>
         </div>
       </div>
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Project ID:</b></label>
+          <input
+            type="text"
+            class="form-control mb-2 mr-sm-2"
+            id="projectId"
+            [(ngModel)]="Bug.projectId"
+            required
+          />
+        </div>
+      </div>
+    </div>
 
+    <!-- -------second row in create bug---------- -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <div class="form-group form-inline">
+            <label for="uname" class="mb-2 mr-sm-2"><b>Module : </b></label>
+            <br />
+            <input
+              type="text"
+              class="form-control mb-2 mr-sm-2"
+              id="module"
+              [(ngModel)]="Bug.module"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Build Version:</b></label>
+          <input
+            type="text"
+            class="form-control mb-2 mr-sm-2"
+            id="buildVersion"
+            [(ngModel)]="Bug.buildVersion"
+            required
+          />
+        </div>
+      </div>
+    </div>
 
+    <!-- -------third row in create bug---------- -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <div class="form-group form-inline">
+            <label for="uname" class="mb-2 mr-sm-2"><b>Synopsis : </b></label>
+            <br />
+            <input
+              type="text"
+              class="form-control mb-2 mr-sm-2"
+              id="synopsis"
+              name="uname"
+              [(ngModel)]="Bug.synopsis"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Product:</b></label>
+          <input
+            type="text"
+            class="form-control mb-2 mr-sm-2"
+            id="product"
+            [(ngModel)]="Bug.product"
+            required
+          />
+        </div>
+      </div>
+    </div>
 
+    <!-- -------third row in create bug---------- -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <div class="form-group form-inline">
+            <label for="uname" class="mb-2 mr-sm-2"
+              ><b>Submitted On : </b></label
+            >
+            <br />
+            <input
+              type="date"
+              [(ngModel)]="Bug.submittedOn"
+              class="form-control mb-2 mr-sm-2"
+              id="submittedOn"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>ETA:</b></label>
+          <input
+            type="date"
+            [(ngModel)]="Bug.eta"
+            class="form-control mb-2 mr-sm-2"
+            id="eta"
+            required
+          />
+        </div>
+      </div>
+    </div>
 
-      <button type="submit" class="btn btn-success" (click)="save()">
-        Submit
-      </button><br><br><br>
+    <div class="row">
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Status : </b></label>
+          <!-- dropdown options -->
+          <select
+            class="custom-select custom-select mb-3"
+            id="status"
+            [(ngModel)]="Bug.status"
+            required
+          >
+            <option>NEW</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Severity :</b></label>
+          <!-- dropdown options -->
+          <select
+            class="custom-select custom-select mb-3"
+            id="severity"
+            [(ngModel)]="Bug.severity"
+            required
+          >
+            <option>CRITICAL</option>
+            <option>MAJOR</option>
+            <option>MINOR</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Priority : </b></label>
+          <!-- dropdown options -->
+          <select
+            class="custom-select custom-select mb-3"
+            id="priority"
+            [(ngModel)]="Bug.priority"
+            required
+          >
+            <option>HIGH</option>
+            <option>MEDIUM</option>
+            <option>LOW</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Bug Type :</b></label>
+          <!-- dropdown options -->
+          <select
+            class="custom-select custom-select mb-3"
+            id="type"
+            [(ngModel)]="Bug.type"
+            required
+          >
+            <option>SYNTAX</option>
+            <option>COMPILE_TIME</option>
+            <option>RUNTIME</option>
+            <option>LOGICAL</option>
+            <option>FUNCTIONAL</option>
+            <option>CALCULATION</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col">
+        <div class="form-group form-inline">
+          <label for="uname" class="mb-2 mr-sm-2"><b>Description :</b> </label>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="5"
+              id="description"
+              name="text"
+              placeholder="describe in 5 to 100 characters"
+              [(ngModel)]="Bug.description"
+              required
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
 
+    <!-- ------------buttons------------ -->
+    <button type="submit" class="btn btn-success" (click)="save()">
+      Submit
+    </button><br><br><br>
 
- <table>
-  <thead>
-    <td>Bug Name</td>
-    <td>Project ID</td>
-    <td>Module</td>
-    <td>Build Version</td>
-    <td>Synopsis</td>
-    <td>Product</td>
-    <td>Description</td>
-    <td>Submitted Date</td>
-    <td>ETA</td>
-    <td>Status</td>
-  </thead>
+    <!-- </form> -->
 
-  <tbody>
-    <tr *ngFor='let Bug of bugArray; index as i'>
-      <td>{{ Bug.name }}</td>
-      <td>{{ Bug.projectId }}</td>
-      <td>{{ Bug.module }}</td>
-      <td>{{ Bug.buildVersion }}</td>
-      <td>{{ Bug.synopsis }}</td>
-      <td>{{ Bug.product }}</td>
-      <td>{{ Bug.description }}</td>
-      <td>{{ Bug.submittedOn }}</td>
-      <td>{{ Bug.eta }}</td>
-      <td>{{ Bug.status }}</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <td>Bug Name</td>
+        <td>Project ID</td>
+        <td>Module</td>
+        <td>Build Version</td>
+        <td>Synopsis</td>
+        <td>Product</td>
+        <td>Description</td>
+        <td>Submitted Date</td>
+        <td>ETA</td>
+        <td>Status</td>
+        <td>Priority</td>
+        <td>Severity</td>
+        <td>Type</td>
+      </thead>
 
+      <tbody>
+        <tr *ngFor="let bug of bugArray; index as i">
+          <td>{{ bug.name }}</td>
+          <td>{{ bug.projectId }}</td>
+          <td>{{ bug.module }}</td>
+          <td>{{ bug.buildVersion }}</td>
+          <td>{{ bug.synopsis }}</td>
+          <td>{{ bug.product }}</td>
+          <td>{{ bug.description }}</td>
+          <td>{{ bug.submittedOn | date }}</td>
+          <td>{{ bug.eta | date }}</td>
+          <td>{{ bug.status }}</td>
+          <td>{{ bug.priority }}</td>
+          <td>{{ bug.severity }}</td>
+          <td>{{ bug.type }}</td>
+        </tr>
+      </tbody>
+    </table>
 
+    <footer class="page-footer font-small blue" id="footer">
+      <div class="footer-copyright text-center py-3">
+        <small>© 2021 Copyright Code_with_HAT</small>
+      </div>
+    </footer>
+  </div>
+</body>
