@@ -5,15 +5,26 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateBugFormComponent } from './create-bug-form/create-bug-form.component';
+import { SearchbugformComponent } from './searchbugform/searchbugform.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component:   CreateBugFormComponent }, //default, Home page
+  { path: 'search', component: SearchbugformComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CreateBugFormComponent
+    CreateBugFormComponent,
+    SearchbugformComponent
   ],
-  imports: [
-    BrowserModule, FormsModule, HttpClientModule
+  imports: [RouterModule.forRoot(
+    appRoutes,
+    { enableTracing: true } // <-- debugging purposes only
+  ),
+    BrowserModule, FormsModule, HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,21 +13,7 @@ Bug:bug = new bug();
 bugArray: any;
 
   constructor(private BugService:BugService) { }
- getBug(name:any)
- {
-   this.BugService.getAllBugs(name).subscribe(response=>
-    {
-      this.bugArray=[response];
-      console.log(response);
-      alert("Bug is displayed");
-    },
-    error=>{
-      console.log(error);
-      alert("Error Occured");
-    }
 
-    )
- }
 
 
 
