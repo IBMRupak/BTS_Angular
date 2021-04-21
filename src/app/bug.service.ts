@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { bug } from './Bug';
+
+
 const URL = 'http://localhost:8084/bug';
 @Injectable({
   providedIn: 'root'
@@ -37,5 +39,15 @@ export class BugService {
         reponseType: 'text'
       }
       });
-}
-}
+    }
+
+
+    updateBug(bug : bug, id :string){
+      return this.http.put(URL+'/'+id, bug,{
+        headers:{"content-type": 'application/json'}
+      })
+    }
+  }
+
+
+

@@ -12,17 +12,17 @@ export class UpdateBugFormComponent implements OnInit {
   bugArray: any;
   constructor(private bugService: BugService) { }
 
-  searchBugbyName(name:any){
-    console.log(this.Bug.name);
-    const observable = this.bugService.searchBugbyName(this.Bug.name);
-    observable.subscribe(response=>{
+  update() {
+    const promise = this.bugService.updateBug(this.Bug, this.Bug.id);
+    promise.subscribe((response: any) => {
       console.log(response);
-        this.bugArray=[response];
-        console.log("success");
-      },
-      error=>{
+      alert('Bug is Updated')
+
+    },
+      error => {
         console.log(error);
-        alert("error occured");
+        alert('Error Occured')
+
       })
   }
 
