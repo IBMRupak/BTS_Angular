@@ -18,9 +18,6 @@ bugArray: any;
 
 
   save(){
-
-
-
      const observable = this.BugService.save(this.Bug);
     observable.subscribe(response=>{
       console.log(response);
@@ -28,6 +25,7 @@ bugArray: any;
 
       alert("Bug is Added");
       this.bugArray.push(Object.assign({},this.Bug));
+
     },
     error=>{
       console.log(error);
@@ -40,7 +38,7 @@ bugArray: any;
     observable.subscribe(response => {
       console.log(response);
       this.bugArray = response;
-    })
+    });
 
   }
 

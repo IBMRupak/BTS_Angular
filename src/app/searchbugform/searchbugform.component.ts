@@ -25,7 +25,7 @@ bugArray: any;
       },
       error=>{
         console.log(error);
-        console.log("error");
+        alert("error occured");
       })
   }
 
@@ -35,11 +35,11 @@ bugArray: any;
     observable.subscribe(response=>{
       console.log(response);
         this.bugArray= response;
-        console.log("success");
+        alert("success");
       },
       error=>{
         console.log(error);
-        console.log("error");
+        alert("error occured");
       })
   }
 
