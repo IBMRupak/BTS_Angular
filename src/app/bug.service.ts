@@ -47,6 +47,9 @@ export class BugService {
         headers:{"content-type": 'application/json'}
       })
     }
+    delete(id:any){
+      return this.http.delete(URL+'/'+id);
+    }
   }
 
 

@@ -82,7 +82,8 @@
             <td>{{ bug.status }}</td>
             <td>{{ bug.priority }}</td>
             <td>{{ bug.severity }}</td>
-            <td>{{ bug.type }}</td>
+
+            <td><button (click)= 'this.deleteBug(bug.id,i)'>Delete</button></td>
           </tr>
         </tbody>
       </table>
