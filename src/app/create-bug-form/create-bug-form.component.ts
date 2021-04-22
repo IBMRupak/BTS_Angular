@@ -29,7 +29,7 @@ bugArray: any;
     },
     error=>{
       console.log(error);
-      alert("Error Occured")
+      alert("Mandatory fields are missing ")
     })
 
   }

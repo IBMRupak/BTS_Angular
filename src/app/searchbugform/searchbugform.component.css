@@ -54,7 +54,10 @@ th,td{
 
   border-collapse: collapse;
 }
+.center{
+  text-align: center;
 
+}
 tr:nth-child(odd){
   background-color: rgb(173, 168, 168);
 }

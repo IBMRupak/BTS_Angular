@@ -16,9 +16,15 @@ bugArray: any;
   constructor(private bugService:BugService) { }
 
   deleteBug(id : any , index : number){
+  if(confirm("Are u sure ??")){
+
     const observable = this.bugService.delete(id);
     observable.subscribe(response=>this.bugArray.splice(index,1))
-
+     alert("Bug is deleted");
+  }
+  else{
+    alert("Your request was Cancelled");
+  }
 
   }
 
@@ -28,11 +34,17 @@ bugArray: any;
     observable.subscribe(response=>{
       console.log(response);
         this.bugArray=[response];
-        console.log("success");
-      },
-      error=>{
-        console.log(error);
-        alert("error occured");
+      //   console.log("success");
+      // },
+      // error=>{
+      //   console.log(error);
+      //   alert("error occured");
+      if(this.bugArray[0]==undefined){
+        return alert('No Bug Found!!!')
+      }
+      else{
+        return alert ('Bug Found')
+      }
       })
   }
 
@@ -42,12 +54,19 @@ bugArray: any;
     observable.subscribe(response=>{
       console.log(response);
         this.bugArray= response;
-        alert("success");
-      },
-      error=>{
-        console.log(error);
-        alert("error occured");
-      })
+      //   alert("success");
+      // },
+      // error=>{
+      //   console.log(error);
+      //   alert("error occured");
+      if(this.bugArray[0]==undefined){
+        return alert('No Bug found!!!');
+      }
+      else{
+        return alert ('Bug Found')
+      }
+       })
+
   }
 
   ngOnInit(): void {

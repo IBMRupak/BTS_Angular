@@ -32,21 +32,33 @@
       <div class="col">
         <div class="form-group form-inline">
           <br />
-          <input
-            type="text"
-            [(ngModel)]="Bug.status"
-            class="form-control mb-2 mr-sm-2"
-            id="status"
-            placeholder=" Enter Bug Status"
-            required
-          />
+          <select
+          class="custom-select custom-select mb-3"
+          id="status"
+          [(ngModel)]="Bug.status"
+          required
+        >
+          <option>NEW</option>
+          <option>CLOSED</option>
+          <option>OPEN</option>
+          <option>FIXED</option>
+          <option>RETEST</option>
+          <option>PENDING_RETEST</option>
+          <option>REOPEN</option>
+          <option>VERIFIED</option>
+
+
+
+        </select>
           <button class="btn btn-info" (click)="searchBugbyStatus(Bug.status)">
             Search bug by status</button
           ><br />
         </div>
       </div>
     </div>
-
+    <div class ="center">
+<button class="btn btn-info" (click)="ngOnInit()">Get All Bugs</button>
+    </div>
     <div class="table-responsive">
       <table
         class="table table-bordered table-stripped"
