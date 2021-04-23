@@ -34,7 +34,7 @@
           <br />
           <select
           class="custom-select custom-select mb-3"
-          id="status"
+          id="status" placeholder="Choose Bug Status"
           [(ngModel)]="Bug.status"
           required
         >
@@ -50,8 +50,8 @@
 
 
         </select>
-          <button class="btn btn-info" (click)="searchBugbyStatus(Bug.status)">
-            Search bug by status</button
+                  <button class="btn btn-info" (click)="searchBugbyStatus(Bug.status)">
+                 Search bug by status</button
           ><br />
         </div>
       </div>

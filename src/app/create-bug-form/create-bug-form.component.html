@@ -31,6 +31,7 @@
               [(ngModel)]="Bug.name"
               required
             />
+            <span class = "pull-right char"><em>{{50- Bug.name.length}} characters left</em></span>
 
           </div>
         </div>
@@ -88,7 +89,7 @@
             <label for="uname" class="mb-2 mr-sm-2"><b>Synopsis : </b><span style="color: red">*</span></label>
             <br />
             <textarea  type="text" maxlength="50"
-              class="form-control mb-2 mr-sm-2" placeholder= "synopsis should be max 50 characters"
+              class="form-control mb-2 mr-sm-2" placeholder= "maximum 50 characters"
               id="synopsis"
               name="uname"
               [(ngModel)]="Bug.synopsis"
@@ -239,41 +240,6 @@
 
     <!-- </form> -->
 
-    <table>
-      <thead>
-        <td>Bug Name</td>
-        <td>Project ID</td>
-        <td>Module</td>
-        <td>Build Version</td>
-        <td>Synopsis</td>
-        <td>Product</td>
-        <td>Description</td>
-        <td>Submitted Date</td>
-        <td>ETA</td>
-        <td>Status</td>
-        <td>Priority</td>
-        <td>Severity</td>
-        <td>Type</td>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let bug of bugArray; index as i">
-          <td>{{ bug.name }}</td>
-          <td>{{ bug.projectId }}</td>
-          <td>{{ bug.module }}</td>
-          <td>{{ bug.buildVersion }}</td>
-          <td>{{ bug.synopsis }}</td>
-          <td>{{ bug.product }}</td>
-          <td>{{ bug.description }}</td>
-          <td>{{ bug.submittedOn | date }}</td>
-          <td>{{ bug.eta | date }}</td>
-          <td>{{ bug.status }}</td>
-          <td>{{ bug.priority }}</td>
-          <td>{{ bug.severity }}</td>
-          <td>{{ bug.type }}</td>
-        </tr>
-      </tbody>
-    </table>
 
     <footer class="page-footer font-small blue" id="footer">
       <div class="footer-copyright text-center py-3">

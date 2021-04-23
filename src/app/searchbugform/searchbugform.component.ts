@@ -16,7 +16,7 @@ bugArray: any;
   constructor(private bugService:BugService) { }
 
   deleteBug(id : any , index : number){
-  if(confirm("Are u sure ??")){
+  if(confirm("Are u sure you want to delete this ?")){
 
     const observable = this.bugService.delete(id);
     observable.subscribe(response=>this.bugArray.splice(index,1))

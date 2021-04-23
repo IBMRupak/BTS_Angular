@@ -10,26 +10,13 @@
 
 
       <!-- Form -->
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <div class="form-group form-inline">
-              <label for="Name"><b>Bug Id : </b><span style="color: red">*</span></label>
-              <div class="col-sm-9">
-                <input placeholder="Enter Bug ID" [(ngModel)]='Bug.id' type="text" class="form-control mb-2 mr-sm-2"
-                  id="bugId" name="bugId" required>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="row">
         <div class="col">
           <div class="form-group">
             <div class="form-group form-inline">
               <label for="uname" class="mb-2 mr-sm-2"><b>BugName :</b><span style="color: red"> * </span></label> <br>
-              <input value="something" type="text" class="form-control mb-2 mr-sm-2" id="bugname"
+              <input value="something" type="text"    (focusout)="searchBugbyName(Bug.name)"class="form-control mb-2 mr-sm-2" id="bugname"
                 placeholder="Enter Name of Bug" name="bugname" [(ngModel)]='Bug.name' required>
             </div>
           </div>
@@ -69,7 +56,7 @@
             <div class="form-group form-inline">
               <label for="uname" class="mb-2 mr-sm-2"><b>Synopsis : </b><span style="color: red"> *</span></label>
               <br />
-              <textarea rows="1" placeholder="Maximum 50" maxlength="50" cols="25" type="text"
+              <textarea rows="1" placeholder="Maximum 50 characters " maxlength="50" cols="25" type="text"
                 class="form-control mb-2 mr-sm-2" id="synopsis" name="synopsis" [(ngModel)]="Bug.synopsis"
                 required></textarea>
               <span class="pull-right char"><em>{{ 50 - Bug.synopsis.length }} characters left</em></span>
@@ -113,6 +100,13 @@
               <select class="custom-select custom-select mb-3" id="status" name="status" [(ngModel)]="Bug.status"
                 required>
                 <option>NEW</option>
+                <option>CLOSED</option>
+                <option>OPEN</option>
+                <option>FIXED</option>
+                <option>RETEST</option>
+                <option>PENDING_RETEST</option>
+                <option>REOPEN</option>
+                <option>VERIFIED</option>
               </select>
             </div>
           </div>
