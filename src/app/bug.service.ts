@@ -23,34 +23,41 @@ export class BugService {
     return this.http.get(URL);
   }
 
-  searchBugbyName(name:any) {
-      return this.http.get(URL+'/name/'+ name, {
-        headers: {
-          "content-type": 'application/json',
-          reponseType: 'text'
-        }
-        });
-  }
-
-  searchBugbyStatus(status:any) {
-    return this.http.get(URL+'/status/'+ status, {
+  searchBugbyName(name: any) {
+    return this.http.get(URL + '/name/' + name, {
       headers: {
         "content-type": 'application/json',
         reponseType: 'text'
       }
-      });
-    }
-
-
-    updateBug(bug : bug, id :string){
-      return this.http.put(URL+'/'+id, bug,{
-        headers:{"content-type": 'application/json'}
-      })
-    }
-    delete(id:any){
-      return this.http.delete(URL+'/'+id);
-    }
+    });
   }
+
+  searchBugbyStatus(status: any) {
+    return this.http.get(URL + '/status/' + status, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+    });
+  }
+  getBugByStatusAndName(name: string, status: string) {
+    return this.http.get(URL + '/search/' + name + '/' + status,{
+
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+    });
+  }
+  updateBug(bug: bug, id: string) {
+    return this.http.put(URL + '/' + id, bug, {
+      headers: { "content-type": 'application/json' }
+    })
+  }
+  delete(id: any) {
+    return this.http.delete(URL + '/' + id);
+  }
+}
 
 
 

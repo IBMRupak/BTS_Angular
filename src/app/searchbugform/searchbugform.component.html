@@ -50,13 +50,20 @@
 
 
         </select>
+
                   <button class="btn btn-info" (click)="searchBugbyStatus(Bug.status)">
                  Search bug by status</button
           ><br />
+
         </div>
       </div>
     </div>
+
+
+
     <div class ="center">
+      <button class="btn btn-info" (click)="searchBugByNameAndStatus()">Search by Name And Status</button>
+      &nbsp;&nbsp;
 <button class="btn btn-info" (click)="ngOnInit()">Get All Bugs</button>
     </div>
     <div class="table-responsive">

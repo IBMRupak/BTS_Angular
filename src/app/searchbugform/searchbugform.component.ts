@@ -11,7 +11,7 @@ export class SearchbugformComponent implements OnInit {
   title:String = 'Searchbugform';
 Bug:bug = new bug();
 bugArray: any;
-
+  bugList:any;
 
   constructor(private bugService:BugService) { }
 
@@ -69,6 +69,32 @@ bugArray: any;
 
   }
 
+  searchBugByNameAndStatus()
+  {
+    let status = (<HTMLInputElement>document.getElementById('status')).value;
+    let name = (<HTMLInputElement>document.getElementById('name')).value;
+
+
+    const observable = this.bugService.getBugByStatusAndName(name,status);
+    observable.subscribe(response =>{
+      console.log(response);
+      this.bugList=response;
+      if(this.bugList !=0){
+       this.bugArray=this.bugList;
+      }
+      else{
+      alert("No bug with name:"+name + "and status:"+status+ "found");
+      }
+
+    },
+    error=>{
+      alert("Error Occured")
+    }
+
+      )
+    }
+
+
   ngOnInit(): void {
 
     const observable = this.bugService.getAllBugs();
@@ -79,4 +105,6 @@ bugArray: any;
 
 
   }
-  }
+}
+
+
