@@ -16,8 +16,9 @@
           <div class="form-group">
             <div class="form-group form-inline">
               <label for="uname" class="mb-2 mr-sm-2"><b>BugName :</b><span style="color: red"> * </span></label> <br>
-              <input value="something" type="text"    (focusout)="searchBugbyName(Bug.name)"class="form-control mb-2 mr-sm-2" id="bugname"
+              <input value="something" type="text"    class="form-control mb-2 mr-sm-2" id="bugname"
                 placeholder="Enter Name of Bug" name="bugname" [(ngModel)]='Bug.name' required>
+                <button (click)="searchBugbyName(Bug.name)">Get Details</button>
             </div>
           </div>
         </div>
@@ -59,7 +60,7 @@
               <textarea rows="1" placeholder="Maximum 50 characters " maxlength="50" cols="25" type="text"
                 class="form-control mb-2 mr-sm-2" id="synopsis" name="synopsis" [(ngModel)]="Bug.synopsis"
                 required></textarea>
-              <span class="pull-right char"><em>{{ 50 - Bug.synopsis.length }} characters left</em></span>
+              <span class="pull-right char"><em>{{ 50 - Bug.synopsis?.length }} characters left</em></span>
             </div>
           </div>
         </div>
@@ -162,7 +163,7 @@
             <div class="form-group">
               <textarea maxlength="200" class="form-control" rows="5" id="description" name="description"
                 placeholder="describe in 5 to 100 characters" [(ngModel)]="Bug.description" required></textarea>
-              <span class="pull-right char"><em>{{ 200 - Bug.description.length }} characters left</em></span>
+              <span class="pull-right char"><em>{{ 200 - Bug.description?.length }} characters left</em></span>
             </div>
           </div>
         </div>

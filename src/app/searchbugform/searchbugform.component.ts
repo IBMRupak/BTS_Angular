@@ -33,7 +33,7 @@ bugArray: any;
     const observable = this.bugService.searchBugbyName(this.Bug.name);
     observable.subscribe(response=>{
       console.log(response);
-        this.bugArray=[response];
+        this.bugArray=response;
       //   console.log("success");
       // },
       // error=>{
@@ -83,7 +83,7 @@ bugArray: any;
        this.bugArray=this.bugList;
       }
       else{
-      alert("No bug with name:"+name + "and status:"+status+ "found");
+      alert("No bug with name:  "+name + " and status: "+status+ " found");
       }
 
     },

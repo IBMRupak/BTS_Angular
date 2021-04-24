@@ -24,6 +24,15 @@ export class BugService {
   }
 
   searchBugbyName(name: any) {
+    return this.http.get(URL + '/' + name, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+    });
+  }
+
+  searchBugbyName1(name: any) {
     return this.http.get(URL + '/name/' + name, {
       headers: {
         "content-type": 'application/json',

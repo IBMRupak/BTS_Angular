@@ -17,7 +17,7 @@ export class UpdateBugFormComponent implements OnInit {
     let bugname = (<HTMLInputElement>document.getElementById('bugname')).value;
     if (bugname) {
       URL = URL + 'name/' + bugname;
-      const observable = this.bugService.searchBugbyName(bugname);
+      const observable = this.bugService.searchBugbyName1(bugname);
       observable.subscribe(response => {
         this.bugArray = response;
         console.log("success");
