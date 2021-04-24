@@ -95,7 +95,7 @@
               [(ngModel)]="Bug.synopsis"
               required
             ></textarea>
-            <span class = "pull-right char"><em>{{50- Bug.synopsis.length}} characters left</em></span>
+            <span class = "pull-right char"><em>{{50- Bug.synopsis?.length}} characters left</em></span>
 
           </div>
         </div>
@@ -226,7 +226,7 @@
               [(ngModel)]="Bug.description"
               required
             ></textarea>
-            <span class = "pull-right char"><em>{{100- Bug.description.length}} characters left</em></span>
+            <span class = "pull-right char"><em>{{100- Bug.description?.length}} characters left</em></span>
           </div>
         </div>
       </div>
