@@ -15,6 +15,9 @@
       <div class="col">
         <div class="form-group form-inline">
           <br />
+          <label>
+            Bug Name :
+          </label>
           <input
             type="text"
             [(ngModel)]="Bug.name"
@@ -23,15 +26,17 @@
             placeholder="Enter Bug Name"
             required
           />
-          <button class="btn btn-info" (click)="searchBugbyName(Bug.name)">
-            Search bug by name</button
-          ><br />
+
+         <br />
         </div>
       </div>
 
       <div class="col">
         <div class="form-group form-inline">
           <br />
+          <label>
+            Bug Status :
+          </label>
           <select
           class="custom-select custom-select mb-3"
           id="status" placeholder="Choose Bug Status"
@@ -51,9 +56,8 @@
 
         </select>
 
-                  <button class="btn btn-info" (click)="searchBugbyStatus(Bug.status)">
-                 Search bug by status</button
-          ><br />
+
+          <br />
 
         </div>
       </div>
@@ -62,10 +66,16 @@
 
 
     <div class ="center">
-      <button class="btn btn-info" (click)="searchBugByNameAndStatus()">Search by Name And Status</button>
+      <button class="btn btn-info"  (click)="searchBugByNameAndStatus()">Search</button>
       &nbsp;&nbsp;
 <button class="btn btn-info" (click)="ngOnInit()">Get All Bugs</button>
-    </div>
+&nbsp; &nbsp;
+<button class="btn btn-info" (click)="refreshPage()">Reset</button>
+
+
+
+
+
     <div class="table-responsive">
       <table
         class="table table-bordered table-stripped"
@@ -93,16 +103,32 @@
             <td>{{ bug.projectId }}</td>
             <td>{{ bug.module }}</td>
             <td>{{ bug.buildVersion }}</td>
-            <td>{{ bug.synopsis }}</td>
+            <td>{{ bug.synopsis | ellipsis : 10 }}
+
+              <button    type="button" class ="btn btn-link" (click)="showSynopsis(this.bug.synopsis)">
+                read more
+
+              </button>
+            </td>
+
+
+
+
             <td>{{ bug.product }}</td>
-            <td>{{ bug.description }}</td>
+            <td>{{ bug.description  | ellipsis : 5 }}
+              <button class ="btn btn-link" (click)="showDescription(this.bug.description)">
+                read more
+
+              </button>
+
+            </td>
             <td>{{ bug.submittedOn | date }}</td>
             <td>{{ bug.eta | date}}</td>
             <td>{{ bug.status }}</td>
             <td>{{ bug.priority }}</td>
             <td>{{ bug.severity }}</td>
 
-            <td><button (click)= 'this.deleteBug(bug.id,i)'>Delete</button></td>
+            <td><button class="btn btn-danger"(click)= 'this.deleteBug(bug.id,i)'>Delete</button></td>
           </tr>
         </tbody>
       </table>
@@ -114,7 +140,7 @@
       </div>
     </footer>
   </div>
-</body>
+
 
 
 

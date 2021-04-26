@@ -49,7 +49,7 @@ export class UpdateBugFormComponent implements OnInit {
     },
       error => {
         console.log(error);
-        alert('Error Occured')
+        alert('ETA cannot be  a past date')
       //  if(this.bugArray[0]==undefined){
       //    return alert("Update not possible")
       //  }

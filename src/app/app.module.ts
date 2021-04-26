@@ -9,12 +9,14 @@ import { SearchbugformComponent } from './searchbugform/searchbugform.component'
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UpdateBugFormComponent } from './update-bug-form/update-bug-form.component';
+import { EllipsisPipe } from './Ellipse';
 
 const appRoutes: Routes = [
   { path: '', component:    HomeComponent }, //default, Home page
   { path: 'create', component: CreateBugFormComponent },
   { path: 'search', component: SearchbugformComponent },
   { path: 'update', component: UpdateBugFormComponent },
+
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     CreateBugFormComponent,
     SearchbugformComponent,
     HomeComponent,
-    UpdateBugFormComponent
+    UpdateBugFormComponent,
+    EllipsisPipe,
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
